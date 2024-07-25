@@ -7,7 +7,7 @@ provider "aws" {
 
 # Eine Ubuntu EC2 Instanz im kleinen t2.nano-Format
 resource "aws_instance" "erste_instanz" {
-  ami           = "ami-096b8af6e7e8fb927"  # Amazon Linux 2023 AMI
+  ami           = "ami-071878317c449ae48"  # Amazon Linux 2023 AMI
   instance_type = "t2.micro"
   tags = {
     Name = "Spekulatius"
