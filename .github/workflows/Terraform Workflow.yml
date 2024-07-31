@@ -15,16 +15,21 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
+        working-directory: ./terraform/2607HA/
         run: terraform init
 
       - name: Terraform Validate
+        working-directory: ./terraform/2607HA/
         run: terraform validate
 
       - name: Terraform Plan
+        working-directory: ./terraform/2607HA/
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
+        working-directory: ./terraform/2607HA/
         run: terraform apply -auto-approve tfplan
 
       - name: Terraform Destroy
+        working-directory: ./terraform/2607HA/
         run: terraform destroy -auto-approve
