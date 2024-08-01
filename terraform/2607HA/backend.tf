@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "my-terraform-state-bucket-anh" {
   bucket = "my-terraform-state-bucket-anh"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_public_access_block" "my-terraform-state-bucket-anh" {
