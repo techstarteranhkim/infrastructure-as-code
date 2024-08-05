@@ -22,4 +22,4 @@ jobs:
         run: pip install ansible
 
       - name: Run Ansible Playbook
-        run: ansible-playbook -i ansible/inventory.ini ansible/docker-playbook.yml
+        run: ansible-playbook -i ansible/inventory.ini ansible/docker-playbook.yml --ssh-extra-args="-o StrictHostKeyChecking=no"
