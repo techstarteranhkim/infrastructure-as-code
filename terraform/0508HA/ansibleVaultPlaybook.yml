@@ -1,0 +1,14 @@
+---
+- name: Read encrypted file
+  hosts: localhost
+  become: no
+
+  tasks:
+  - name: Read secrets file
+    ansible.builtin.slurp:
+      src: secrets.txt
+    register: secrets_file
+
+  - name: Print secrets
+    ansible.builtin.debug:
+      var: secrets_file.content | b64decode

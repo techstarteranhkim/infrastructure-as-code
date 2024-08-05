@@ -1,0 +1,9 @@
+---
+- name: My playbook
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+  - name: Trust host keys
+    ansible.builtin.shell: echo -n
+    connection: ssh
