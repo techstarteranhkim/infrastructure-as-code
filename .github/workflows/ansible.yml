@@ -1,0 +1,24 @@
+name: Ansible Deployment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Copy Github repo
+      - uses: actions/checkout@v4
+
+      - name: Set up SSH Key
+        run: |
+          mkdir -p /home/runner/.ssh/
+          echo -e "${{ secrets.ansible }}" > /home/runner/.ssh/id_rsa
+          chmod 400 /home/runner/.ssh/id_rsa
+
+      - name: Install Ansible
+        run: pip install ansible
+
+      - name: Run Ansible Playbook
+        run: ansible-playbook - i ansible/inventory.ini ansible/docker-playbook.yml
